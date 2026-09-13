@@ -8,19 +8,26 @@ Open `index.html` in your browser.
 
 ## Pages
 
-- Home
-- Books
-- Resources
-- Ideas
-- Insights
-- Motivation
+| Page | Question it answers |
+|------|---------------------|
+| Home | Overview of the vault |
+| Books | What am I reading? |
+| Resources | What am I consuming? |
+| Ideas | What came to my mind? |
+| Insights | What did I learn? |
+| Motivation | What keeps me moving? |
 
 ## Status
 
-- Phase 0 complete: project skeleton, shared nav/footer, mobile menu  
-- Phase 1 complete: Home page (hero, stats, quick actions, recent placeholders)  
-- Phase 2 complete: Books page (8 books, Add Book modal, Read More, in-memory add/delete)
-- Phase 3 complete: Resources page (filter, search, add/delete in memory)
-- Phase 4 complete: Ideas page (search, category filter, capture form)
+All planned phases complete (0–7):
 
-See [IMPLEMENTATION.md](IMPLEMENTATION.md) for phase-by-phase notes.
+- Shared nav + mobile menu  
+- Home with live stats + recent items  
+- Books / Resources / Ideas / Insights (add, filter/search where planned, in-memory)  
+- Motivation quotes + Inspire Me  
+
+See [IMPLEMENTATION.md](IMPLEMENTATION.md) for phase notes and viva explanations.
+
+## Note on data
+
+Starter items live in `js/data.js`. Items you add stay in memory only and disappear on refresh (by design for phase 1). Helpers are ready to swap to `localStorage` later.

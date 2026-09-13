@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Books — MindVault</title>
+  <title>Books  -  MindVault</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -26,39 +26,36 @@
 
   <main class="page-main">
     <div class="container">
-      <header class="page-header">
+      <div class="page-header">
         <div>
           <h1>Books</h1>
-          <p>What I am reading — and what I want to remember from each book.</p>
+          <p>What I am reading  -  and what I want to remember from each book.</p>
         </div>
         <button class="btn" type="button" id="btn-open-add-book">+ Add Book</button>
-      </header>
+      </div>
 
-      <section aria-label="Book list">
-        <div class="items-grid" id="books-grid"></div>
-      </section>
+      <div class="items-grid" id="books-grid"></div>
     </div>
   </main>
 
-  <!-- Add Book modal -->
   <div class="modal-backdrop" id="add-book-modal" hidden>
-    <div class="modal" role="dialog" aria-labelledby="add-book-title" aria-modal="true">
-      <h2 id="add-book-title">Add Book</h2>
-      <form id="add-book-form" novalidate>
+    <div class="modal">
+      <h2>Add Book</h2>
+      <form id="add-book-form">
         <div class="form-group" id="book-title-group">
           <label for="book-title">Book name</label>
-          <input type="text" id="book-title" name="title" placeholder="e.g. Atomic Habits">
+          <input type="text" id="book-title" placeholder="e.g. Atomic Habits">
           <p class="error-text"></p>
         </div>
         <div class="form-group" id="book-author-group">
           <label for="book-author">Author</label>
-          <input type="text" id="book-author" name="author" placeholder="e.g. James Clear">
+          <input type="text" id="book-author" placeholder="e.g. James Clear">
           <p class="error-text"></p>
         </div>
         <div class="form-group" id="book-category-group">
           <label for="book-category">Category</label>
-          <select id="book-category" name="category">
-            <option value="">Select category…</option>
+          <select id="book-category">
+            <option value="">Select category...</option>
             <option value="Self-Improvement">Self-Improvement</option>
             <option value="Investing">Investing</option>
             <option value="Finance">Finance</option>
@@ -72,7 +69,7 @@
         </div>
         <div class="form-group" id="book-summary-group">
           <label for="book-summary">Summary</label>
-          <textarea id="book-summary" name="summary" rows="4" placeholder="A short note about this book…"></textarea>
+          <textarea id="book-summary" rows="4" placeholder="A short note about this book..."></textarea>
           <p class="error-text"></p>
         </div>
         <div class="modal-actions">
@@ -83,9 +80,8 @@
     </div>
   </div>
 
-  <!-- Read More modal -->
   <div class="modal-backdrop" id="book-detail-modal" hidden>
-    <div class="modal" role="dialog" aria-labelledby="book-detail-title" aria-modal="true">
+    <div class="modal">
       <h2 id="book-detail-title">Book</h2>
       <p class="detail-meta" id="book-detail-meta"></p>
       <p id="book-detail-summary"></p>
@@ -97,7 +93,7 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© 2026 MindVault — personal knowledge vault</p>
+      <p>Copyright 2026 MindVault</p>
       <div class="footer-links">
         <a href="books.html">Books</a>
         <a href="ideas.html">Ideas</a>
