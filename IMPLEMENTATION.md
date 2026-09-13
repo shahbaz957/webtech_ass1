@@ -97,9 +97,80 @@ Filled in later phases. Kept separate from `script.js` so content is easy to edi
 
 ---
 
+## Phase 1 — Home page (`feature/home`)
+
+### Goal
+
+Turn the Home stub into a real overview: hero, vault statistics (static numbers), quick actions, and a recent-items placeholder. No new JavaScript yet — stats stay hardcoded until Phase 7.
+
+### Files touched
+
+| File | Role |
+|------|------|
+| `index.html` | Full Home page content |
+| `css/style.css` | Hero, stats, quick actions, recent cards + responsive rules |
+| `IMPLEMENTATION.md` | This Phase 1 section |
+| `README.md` | Status update |
+
+### HTML — tags used and why
+
+| Tag / structure | Where | Why |
+|-----------------|--------|-----|
+| `section.hero` | Top of `main` | Introduces MindVault; one clear purpose |
+| `h1` | Hero | Main page heading (brand message) |
+| `section.statistics` | Below hero | Groups the count cards |
+| `article.stat-card` | Inside stats | Each statistic is its own article (semantic card) |
+| `strong` + `span` | Stat card | Number + label |
+| `section.quick-actions` | Middle | Shortcut links to other pages |
+| `a.btn` | Quick actions / hero | Links styled as buttons (no modals yet) |
+| `section.recent-items` | Lower | Placeholder for future “recent” list |
+| `article.recent-card` | Recent grid | Placeholder cards until real data exists |
+| `id="stat-books"` etc. | Stat numbers | Ready for Phase 7 JS to update counts |
+
+### CSS — what and why
+
+| Piece | Layout | Why |
+|-------|--------|-----|
+| `.hero`, `.hero-lead`, `.hero-actions` | Flexbox on `.hero-actions` | Hero text + CTA buttons in a row that wraps |
+| `.stats-row` | **Flexbox** | One-dimensional row of equal-ish stat cards (`flex: 1 1 120px`) |
+| `.stat-card` | Card surface | Consistent with site tokens (border, radius, shadow) |
+| `.actions-row` | **Flexbox** | Button group for quick actions |
+| `.recent-grid` | **CSS Grid** `repeat(3, 1fr)` | Two-dimensional card layout (first Grid use) |
+| `@media (max-width: 900px)` | Grid → 2 columns | Tablet |
+| `@media (max-width: 600px)` | Grid → 1 col; actions column | Mobile; full-width buttons |
+
+### JavaScript
+
+No new functions in Phase 1.
+
+- Still only `setupNav()` from Phase 0.
+- Stat numbers are **static HTML** (`8` for each). Phase 7 will call something like `updateHomeStats()` to read array lengths.
+
+### How to test
+
+1. Open `index.html`.
+2. Check hero text and two CTAs (Ideas / Books).
+3. Check five stat cards show `8`.
+4. Click each quick action — goes to Books, Resources, Ideas, Insights.
+5. Resize: stats wrap; recent cards go 3 → 2 → 1 columns; buttons stack on mobile.
+6. Hamburger still works under 600px.
+
+### Git
+
+- Branch: `feature/home`
+- Suggested commit message: `Add MindVault Home page with hero, stats, and quick actions`
+
+### Not in this phase
+
+- Dynamic stats from data arrays  
+- Real recent items  
+- Add modals from Home  
+- Books page content (Phase 2)
+
+---
+
 ## Later phases (placeholder)
 
-- Phase 1 — Home  
 - Phase 2 — Books  
 - Phase 3 — Resources  
 - Phase 4 — Ideas  

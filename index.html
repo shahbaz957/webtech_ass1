@@ -25,12 +25,89 @@
   </header>
 
   <main class="page-main">
-    <div class="container">
-      <section class="page-stub">
-        <h1>Home</h1>
-        <p>Phase 0 stub. Hero, stats, and quick actions will be added in Phase 1.</p>
-      </section>
-    </div>
+    <!-- Hero: overview of MindVault -->
+    <section class="hero">
+      <div class="container">
+        <p class="hero-eyebrow">Your external memory</p>
+        <h1>Don't let good ideas disappear.</h1>
+        <p class="hero-lead">
+          Capture what you learn. Organize what you know. Revisit what matters.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="ideas.html">Capture an idea</a>
+          <a class="btn btn-outline" href="books.html">Browse books</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vault statistics (static placeholders until Phase 7) -->
+    <section class="statistics" aria-label="Vault statistics">
+      <div class="container">
+        <h2 class="section-title">Vault statistics</h2>
+        <p class="section-desc">A quick look at what is stored in MindVault.</p>
+        <div class="stats-row">
+          <article class="stat-card">
+            <strong id="stat-books">8</strong>
+            <span>Books</span>
+          </article>
+          <article class="stat-card">
+            <strong id="stat-resources">8</strong>
+            <span>Resources</span>
+          </article>
+          <article class="stat-card">
+            <strong id="stat-ideas">8</strong>
+            <span>Ideas</span>
+          </article>
+          <article class="stat-card">
+            <strong id="stat-insights">8</strong>
+            <span>Insights</span>
+          </article>
+          <article class="stat-card">
+            <strong id="stat-quotes">8</strong>
+            <span>Quotes</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick actions: jump to pages (modals come in later phases) -->
+    <section class="quick-actions" aria-label="Quick actions">
+      <div class="container">
+        <h2 class="section-title">Quick actions</h2>
+        <p class="section-desc">Go straight to the page where you want to add something.</p>
+        <div class="actions-row">
+          <a class="btn" href="books.html">+ Add Book</a>
+          <a class="btn" href="resources.html">+ Add Resource</a>
+          <a class="btn" href="ideas.html">+ Capture Idea</a>
+          <a class="btn" href="insights.html">+ Add Insight</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent items placeholder until Phase 7 wires real data -->
+    <section class="recent-items" aria-label="Recent items">
+      <div class="container">
+        <h2 class="section-title">Recent items</h2>
+        <p class="section-desc">Latest captures will show here after Books, Resources, Ideas, and Insights are built.</p>
+        <div class="recent-grid">
+          <article class="recent-card">
+            <span class="recent-type">Book</span>
+            <h3>Coming in Phase 2</h3>
+            <p>Book cards and Add Book will appear on the Books page.</p>
+          </article>
+          <article class="recent-card">
+            <span class="recent-type">Idea</span>
+            <h3>Coming in Phase 4</h3>
+            <p>Ideas you capture will show up here on the Home overview.</p>
+          </article>
+          <article class="recent-card">
+            <span class="recent-type">Insight</span>
+            <h3>Coming in Phase 5</h3>
+            <p>Things you learn will be listed after the Insights page is ready.</p>
+          </article>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
