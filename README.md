@@ -17,6 +17,7 @@ Open `index.html` in your browser.
 
 ## Status
 
-Phase 0 complete: project skeleton, shared nav/footer, mobile menu.
+- Phase 0 complete: project skeleton, shared nav/footer, mobile menu  
+- Phase 1 complete: Home page (hero, stats, quick actions, recent placeholders)
 
 See [IMPLEMENTATION.md](IMPLEMENTATION.md) for phase-by-phase notes.
