@@ -503,6 +503,68 @@ select {
   display: block;
 }
 
+/* ----- Filters + search (Resources) ----- */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: var(--space-2);
+}
+
+.filter-btn {
+  padding: 0.45rem 0.9rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+.search-box {
+  width: 100%;
+  max-width: 420px;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  margin-bottom: var(--space-3);
+}
+
+.search-box:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.resource-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.resource-card h3 {
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+.resource-card .card-actions {
+  margin-top: auto;
+  padding-top: var(--space-2);
+}
+
 /* ----- Footer ----- */
 .site-footer {
   margin-top: auto;

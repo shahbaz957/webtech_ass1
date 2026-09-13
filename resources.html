@@ -26,12 +26,79 @@
 
   <main class="page-main">
     <div class="container">
-      <section class="page-stub">
-        <h1>Resources</h1>
-        <p>Phase 0 stub. Resource cards, filters, and search will be added in Phase 3.</p>
+      <header class="page-header">
+        <div>
+          <h1>Resources</h1>
+          <p>Videos, articles, papers, docs, and websites worth saving.</p>
+        </div>
+        <button class="btn" type="button" id="btn-open-add-resource">+ Add Resource</button>
+      </header>
+
+      <div class="filters">
+        <button class="filter-btn active" type="button" data-resource-filter="all">All</button>
+        <button class="filter-btn" type="button" data-resource-filter="Video">Videos</button>
+        <button class="filter-btn" type="button" data-resource-filter="Article">Articles</button>
+        <button class="filter-btn" type="button" data-resource-filter="Paper">Papers</button>
+        <button class="filter-btn" type="button" data-resource-filter="Docs">Docs</button>
+        <button class="filter-btn" type="button" data-resource-filter="Website">Websites</button>
+      </div>
+
+      <input class="search-box" type="search" id="resource-search" placeholder="Search resources…">
+
+      <section aria-label="Resource list">
+        <div class="items-grid" id="resources-grid"></div>
       </section>
     </div>
   </main>
+
+  <div class="modal-backdrop" id="add-resource-modal" hidden>
+    <div class="modal" role="dialog" aria-labelledby="add-resource-title" aria-modal="true">
+      <h2 id="add-resource-title">Add Resource</h2>
+      <form id="add-resource-form" novalidate>
+        <div class="form-group" id="res-title-group">
+          <label for="res-title">Title</label>
+          <input type="text" id="res-title" placeholder="Resource title">
+          <p class="error-text"></p>
+        </div>
+        <div class="form-group" id="res-type-group">
+          <label for="res-type">Type</label>
+          <select id="res-type">
+            <option value="">Select type…</option>
+            <option value="Video">Video</option>
+            <option value="Article">Article</option>
+            <option value="Paper">Paper</option>
+            <option value="Docs">Docs</option>
+            <option value="Website">Website</option>
+          </select>
+          <p class="error-text"></p>
+        </div>
+        <div class="form-group" id="res-creator-group">
+          <label for="res-creator">Creator</label>
+          <input type="text" id="res-creator" placeholder="Author or channel">
+          <p class="error-text"></p>
+        </div>
+        <div class="form-group" id="res-url-group">
+          <label for="res-url">URL</label>
+          <input type="url" id="res-url" placeholder="https://…">
+          <p class="error-text"></p>
+        </div>
+        <div class="form-group" id="res-topic-group">
+          <label for="res-topic">Topic</label>
+          <input type="text" id="res-topic" placeholder="e.g. Databases">
+          <p class="error-text"></p>
+        </div>
+        <div class="form-group" id="res-summary-group">
+          <label for="res-summary">Summary</label>
+          <textarea id="res-summary" rows="4" placeholder="Why is this useful?"></textarea>
+          <p class="error-text"></p>
+        </div>
+        <div class="modal-actions">
+          <button class="btn btn-outline" type="button" data-close-modal="add-resource-modal">Cancel</button>
+          <button class="btn" type="submit">Save Resource</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <footer class="site-footer">
     <div class="container footer-inner">

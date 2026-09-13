@@ -266,9 +266,52 @@ Later pages: same pattern with `resources`, `ideas`, etc.
 
 ---
 
+## Phase 3 — Resources page (`feature/resources`)
+
+### Goal
+
+List 8 learning resources, filter by type, search by text, add a resource with validation, delete only user-added items. Same simple in-memory pattern as Books.
+
+### Files touched
+
+| File | Change |
+|------|--------|
+| `resources.html` | Full page: filters, search, grid, add modal |
+| `js/data.js` | 8 items in `initialResources` |
+| `js/script.js` | `renderResources` + `setupResources` (reuses helpers) |
+| `css/style.css` | `.filters`, `.filter-btn`, `.search-box`, `.resource-card` |
+| `IMPLEMENTATION.md` / `README.md` | Phase 3 notes |
+
+### JavaScript (minimal)
+
+Reuses: `copyList`, `removeById`, `newId`, `setError`, `clearError`, `openModal`, `closeModal`, `setupModals`.
+
+| New pieces | Role |
+|------------|------|
+| `resources` | `copyList(initialResources)` |
+| `resourceFilter` / `resourceSearch` | Current filter + search text |
+| `renderResources()` | Loop list; skip items that fail filter/search; build cards |
+| `setupResources()` | Wire filters, search, delete, add form |
+
+URL check: must start with `http`.
+
+### How to test
+
+1. Open `resources.html`.
+2. Click type filters (Videos, Docs, …).
+3. Search e.g. `database`.
+4. Add Resource with empty fields → errors; then valid save → new card with Delete.
+5. Refresh → only original 8 remain.
+
+### Git
+
+- Suggested branch: `feature/resources`
+- Suggested commit: `Add Resources page with filter, search, and add form`
+
+---
+
 ## Later phases (placeholder)
 
-- Phase 3 — Resources  
 - Phase 4 — Ideas  
 - Phase 5 — Insights  
 - Phase 6 — Motivation  
