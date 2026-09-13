@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ideas — MindVault</title>
+  <title>Ideas - MindVault</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -26,13 +26,13 @@
 
   <main class="page-main">
     <div class="container">
-      <header class="page-header">
+      <div class="page-header">
         <div>
           <h1>Ideas</h1>
           <p>Capture thoughts before they disappear.</p>
         </div>
         <button class="btn" type="button" id="btn-open-add-idea">+ Capture Idea</button>
-      </header>
+      </div>
 
       <div class="filters">
         <button class="filter-btn active" type="button" data-idea-filter="all">All</button>
@@ -43,18 +43,16 @@
         <button class="filter-btn" type="button" data-idea-filter="Random Thought">Random Thought</button>
       </div>
 
-      <input class="search-box" type="search" id="idea-search" placeholder="Search ideas…">
+      <input class="search-box" type="search" id="idea-search" placeholder="Search ideas...">
 
-      <section aria-label="Idea list">
-        <div class="items-grid" id="ideas-grid"></div>
-      </section>
+      <div class="items-grid" id="ideas-grid"></div>
     </div>
   </main>
 
   <div class="modal-backdrop" id="add-idea-modal" hidden>
-    <div class="modal" role="dialog" aria-labelledby="add-idea-title" aria-modal="true">
-      <h2 id="add-idea-title">Capture Idea</h2>
-      <form id="add-idea-form" novalidate>
+    <div class="modal">
+      <h2>Capture Idea</h2>
+      <form id="add-idea-form">
         <div class="form-group" id="idea-title-group">
           <label for="idea-title">Idea title</label>
           <input type="text" id="idea-title" placeholder="Short title">
@@ -63,7 +61,7 @@
         <div class="form-group" id="idea-category-group">
           <label for="idea-category">Category</label>
           <select id="idea-category">
-            <option value="">Select category…</option>
+            <option value="">Select category...</option>
             <option value="Blog Idea">Blog Idea</option>
             <option value="Project Idea">Project Idea</option>
             <option value="Business Idea">Business Idea</option>
@@ -87,7 +85,7 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© 2026 MindVault — personal knowledge vault</p>
+      <p>Copyright 2026 MindVault</p>
       <div class="footer-links">
         <a href="books.html">Books</a>
         <a href="ideas.html">Ideas</a>

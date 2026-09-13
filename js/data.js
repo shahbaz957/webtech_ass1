@@ -1,4 +1,7 @@
-
+/**
+ * MindVault - starter data
+ * Edit this file to change the built-in content.
+ */
 
 var initialBooks = [
   {

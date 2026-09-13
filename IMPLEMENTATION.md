@@ -430,14 +430,14 @@ Because each HTML page reloads the script, Home shows the **initial** list sizes
 | `setupMotivation` / `inspireMe` | Random quote |
 | `setupHome` | Stats + recent |
 
-## Final CSS map (for viva)
+## Code style (after audit)
 
-| Technique | Where |
-|-----------|--------|
-| Flexbox | Nav, footer, stats, filters, actions, page header |
-| Grid | `.items-grid`, `.recent-grid` (3 → 2 → 1) |
-| Media queries | 900px and 600px |
+JavaScript is written for beginners:
 
----
+- Clear names: `getById`, `showError`, `deleteById`, `setupBooks`
+- `array.slice()` to copy starter lists
+- `if / else` instead of ternary operators
+- `show = true/false` instead of `continue`
+- Same pattern on every CRUD page: copy list -> render -> setup clicks/form
 
-*End of planned phases.*
+CSS uses simple shared classes: `.card`, `.tag`, `.muted`, `.btn`
