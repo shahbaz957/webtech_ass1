@@ -310,9 +310,40 @@ URL check: must start with `http`.
 
 ---
 
+## Phase 4 — Ideas page (`feature/ideas`)
+
+### Goal
+
+Capture ideas before they disappear: 8 starter ideas, category filter, search, add form, delete user ideas. Same simple pattern as Resources.
+
+### Files touched
+
+| File | Change |
+|------|--------|
+| `ideas.html` | Filters, search, grid, add modal |
+| `js/data.js` | 8 items in `initialIdeas` |
+| `js/script.js` | `renderIdeas` + `setupIdeas` |
+| `IMPLEMENTATION.md` / `README.md` | Phase 4 notes |
+
+Reuses existing CSS (`.filters`, `.search-box`, `.resource-card`) and helpers (`copyList`, `removeById`, `newId`, errors, modals).
+
+### How to test
+
+1. Open `ideas.html`.
+2. Filter by Blog Idea / Project Idea, etc.
+3. Search e.g. `database`.
+4. Capture Idea → validation → save → Delete on user card.
+5. Refresh → only original 8 remain.
+
+### Git
+
+- Suggested branch: `feature/ideas`
+- Suggested commit: `Add Ideas page with search, filter, and capture form`
+
+---
+
 ## Later phases (placeholder)
 
-- Phase 4 — Ideas  
 - Phase 5 — Insights  
 - Phase 6 — Motivation  
 - Phase 7 — Wire Home to data  

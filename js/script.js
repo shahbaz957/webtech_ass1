@@ -352,10 +352,121 @@ function setupResources() {
   };
 }
 
+/* ===== IDEAS ===== */
+var ideas = copyList(initialIdeas);
+var ideaFilter = "all";
+var ideaSearch = "";
+
+function renderIdeas() {
+  var grid = $("ideas-grid");
+  if (!grid) return;
+
+  var html = "";
+  for (var i = 0; i < ideas.length; i++) {
+    var item = ideas[i];
+    var text = (item.title + " " + item.category + " " + item.description).toLowerCase();
+
+    if (ideaFilter !== "all" && item.category !== ideaFilter) continue;
+    if (ideaSearch && text.indexOf(ideaSearch) === -1) continue;
+
+    var del =
+      item.source === "user"
+        ? '<button class="btn btn-outline btn-small" type="button" data-delete="' + item.id + '">Delete</button>'
+        : "";
+
+    html +=
+      '<article class="resource-card">' +
+      '<span class="card-tag">' + item.category + "</span>" +
+      "<h3>" + item.title + "</h3>" +
+      '<p class="book-summary">' + item.description + "</p>" +
+      '<div class="card-actions">' + del + "</div></article>";
+  }
+
+  grid.innerHTML = html || "<p class='section-desc'>No ideas match your filter.</p>";
+}
+
+function setupIdeas() {
+  var grid = $("ideas-grid");
+  if (!grid) return;
+
+  renderIdeas();
+
+  var filters = document.querySelectorAll("[data-idea-filter]");
+  for (var i = 0; i < filters.length; i++) {
+    filters[i].onclick = function () {
+      ideaFilter = this.getAttribute("data-idea-filter");
+      for (var j = 0; j < filters.length; j++) {
+        filters[j].classList.remove("active");
+      }
+      this.classList.add("active");
+      renderIdeas();
+    };
+  }
+
+  $("idea-search").oninput = function () {
+    ideaSearch = this.value.trim().toLowerCase();
+    renderIdeas();
+  };
+
+  grid.onclick = function (e) {
+    var delId = e.target.getAttribute("data-delete");
+    if (!delId) return;
+    ideas = removeById(ideas, delId);
+    renderIdeas();
+  };
+
+  $("btn-open-add-idea").onclick = function () {
+    $("add-idea-form").reset();
+    clearError("idea-title-group");
+    clearError("idea-category-group");
+    clearError("idea-desc-group");
+    openModal("add-idea-modal");
+  };
+
+  $("add-idea-form").onsubmit = function (e) {
+    e.preventDefault();
+
+    var title = $("idea-title").value.trim();
+    var category = $("idea-category").value;
+    var description = $("idea-desc").value.trim();
+    var ok = true;
+
+    clearError("idea-title-group");
+    clearError("idea-category-group");
+    clearError("idea-desc-group");
+
+    if (title.length < 2) {
+      setError("idea-title-group", "Enter a title.");
+      ok = false;
+    }
+    if (!category) {
+      setError("idea-category-group", "Select a category.");
+      ok = false;
+    }
+    if (description.length < 10) {
+      setError("idea-desc-group", "Write at least 10 characters.");
+      ok = false;
+    }
+    if (!ok) return;
+
+    ideas.push({
+      id: newId(),
+      title: title,
+      category: category,
+      description: description,
+      source: "user"
+    });
+
+    renderIdeas();
+    closeModal("add-idea-modal");
+  };
+}
+
 /* ===== start ===== */
 document.addEventListener("DOMContentLoaded", function () {
   setupNav();
   setupModals();
   setupBooks();
   setupResources();
+  setupIdeas();
 });
