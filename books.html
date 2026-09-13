@@ -26,12 +26,74 @@
 
   <main class="page-main">
     <div class="container">
-      <section class="page-stub">
-        <h1>Books</h1>
-        <p>Phase 0 stub. Book cards and Add Book will be added in Phase 2.</p>
+      <header class="page-header">
+        <div>
+          <h1>Books</h1>
+          <p>What I am reading — and what I want to remember from each book.</p>
+        </div>
+        <button class="btn" type="button" id="btn-open-add-book">+ Add Book</button>
+      </header>
+
+      <section aria-label="Book list">
+        <div class="items-grid" id="books-grid"></div>
       </section>
     </div>
   </main>
+
+  <!-- Add Book modal -->
+  <div class="modal-backdrop" id="add-book-modal" hidden>
+    <div class="modal" role="dialog" aria-labelledby="add-book-title" aria-modal="true">
+      <h2 id="add-book-title">Add Book</h2>
+      <form id="add-book-form" novalidate>
+        <div class="form-group" id="book-title-group">
+          <label for="book-title">Book name</label>
+          <input type="text" id="book-title" name="title" placeholder="e.g. Atomic Habits">
+          <p class="error-text"></p>
+        </div>
+        <div class="form-group" id="book-author-group">
+          <label for="book-author">Author</label>
+          <input type="text" id="book-author" name="author" placeholder="e.g. James Clear">
+          <p class="error-text"></p>
+        </div>
+        <div class="form-group" id="book-category-group">
+          <label for="book-category">Category</label>
+          <select id="book-category" name="category">
+            <option value="">Select category…</option>
+            <option value="Self-Improvement">Self-Improvement</option>
+            <option value="Investing">Investing</option>
+            <option value="Finance">Finance</option>
+            <option value="Psychology">Psychology</option>
+            <option value="Productivity">Productivity</option>
+            <option value="Mindset">Mindset</option>
+            <option value="Startups">Startups</option>
+            <option value="Other">Other</option>
+          </select>
+          <p class="error-text"></p>
+        </div>
+        <div class="form-group" id="book-summary-group">
+          <label for="book-summary">Summary</label>
+          <textarea id="book-summary" name="summary" rows="4" placeholder="A short note about this book…"></textarea>
+          <p class="error-text"></p>
+        </div>
+        <div class="modal-actions">
+          <button class="btn btn-outline" type="button" data-close-modal="add-book-modal">Cancel</button>
+          <button class="btn" type="submit">Add Book</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Read More modal -->
+  <div class="modal-backdrop" id="book-detail-modal" hidden>
+    <div class="modal" role="dialog" aria-labelledby="book-detail-title" aria-modal="true">
+      <h2 id="book-detail-title">Book</h2>
+      <p class="detail-meta" id="book-detail-meta"></p>
+      <p id="book-detail-summary"></p>
+      <div class="modal-actions">
+        <button class="btn" type="button" data-close-modal="book-detail-modal">Close</button>
+      </div>
+    </div>
+  </div>
 
   <footer class="site-footer">
     <div class="container footer-inner">

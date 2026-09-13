@@ -169,9 +169,105 @@ No new functions in Phase 1.
 
 ---
 
+## Phase 2 — Books page (`feature/books`)
+
+### Goal
+
+Show 8 starter books as cards (cover from the internet, author, category, summary), open a Read More modal, and let the user add a book with a validated form. User books stay in memory only (lost on refresh). Delete is only for user-added books.
+
+### Files touched
+
+| File | Role |
+|------|------|
+| `books.html` | Books page + Add Book modal + Read More modal |
+| `js/data.js` | `initialBooks` with 8 books |
+| `js/script.js` | Books render, form, modals, in-memory CRUD helpers |
+| `css/style.css` | Grid cards, modal, form styles, responsive columns |
+| `IMPLEMENTATION.md` | This section |
+| `README.md` | Status update |
+
+### The 8 books
+
+| Title | Author | Cover source |
+|-------|--------|--------------|
+| Atomic Habits | James Clear | Open Library ISBN `9780735211292` |
+| The Warren Buffett Way | Robert G. Hagstrom | Open Library ISBN `9781118503256` |
+| Think and Grow Rich | Napoleon Hill | Open Library ISBN `9781585424337` |
+| The Psychology of Money | Morgan Housel | Open Library ISBN `9780857197689` |
+| Mindset | Carol S. Dweck | Open Library ISBN `9780345472328` |
+| Deep Work | Cal Newport | Open Library ISBN `9781455586691` |
+| Hyperfocus | Chris Bailey | Open Library ISBN `9780525522232` |
+| Zero to One | Peter Thiel | Open Library ISBN `9780804139298` |
+
+Cover URL pattern: `https://covers.openlibrary.org/b/isbn/{ISBN}-L.jpg`  
+(Needs internet while viewing the page.)
+
+### HTML — tags used and why
+
+| Tag | Why |
+|-----|-----|
+| `header.page-header` | Page title + Add Book button (Flexbox row) |
+| `section` + `#books-grid` | Empty container; cards are created by JS |
+| `article.book-card` | Each book is a semantic card (created in JS) |
+| `form` / `label` / `input` / `select` / `textarea` | Add Book form (assignment form requirements) |
+| `.modal-backdrop` + `.modal` | Add Book and Read More dialogs |
+| `button` | Open modal, submit, cancel, read more, delete |
+
+### CSS — what and why
+
+| Piece | Layout | Why |
+|-------|--------|-----|
+| `.items-grid` | **Grid** 3 columns | Book board (desktop) |
+| `@media 900px` / `600px` | Grid 2 → 1 | Responsive tablet/mobile |
+| `.book-card` | Flex column | Cover on top, body grows, actions at bottom |
+| `.page-header` | **Flexbox** | Title left, button right |
+| `.modal-backdrop` | Flex center | Dim overlay + centered dialog |
+| `.form-group.error` | Border + error text | Validation feedback |
+| `.card-actions` | **Flexbox** | Read More + Delete side by side |
+
+### JavaScript — simplified shared helpers + books
+
+`script.js` was rewritten shorter. Shared helpers are reused on later pages.
+
+| Function | What it does |
+|----------|----------------|
+| `$` / `openModal` / `closeModal` / `setupModals` | DOM + modals |
+| `copyList` / `findById` / `removeById` / `newId` | Reusable list CRUD helpers |
+| `setError` / `clearError` | Form errors |
+| `setupNav` | Hamburger menu |
+| `renderBooks` | Build all book cards as HTML |
+| `setupBooks` | Open form, validate, add, one click handler for Read More + Delete |
+
+Working list: `var books = copyList(initialBooks);`  
+Later pages: same pattern with `resources`, `ideas`, etc.
+
+**Validation:** title/author ≥ 2, category required, summary ≥ 10.  
+**Refresh:** original 8 stay; user books disappear.
+
+### How to test
+
+1. Open `books.html` (with internet for covers).
+2. See 8 cards in a grid; resize → 2 then 1 column.
+3. Click **Read More** → modal with full text; Close / Escape / outside click.
+4. Click **+ Add Book** → leave fields empty → submit → errors show.
+5. Fill valid data → new card appears with **Delete**.
+6. Delete user book → card removed. Refresh → only the original 8 remain.
+
+### Git
+
+- Branch: `feature/books`
+- Suggested commit: `Add Books page with cards, add modal, and in-memory storage`
+
+### Not in this phase
+
+- localStorage persistence  
+- Resources / Ideas / Insights pages  
+- Home stats wired to real counts  
+
+---
+
 ## Later phases (placeholder)
 
-- Phase 2 — Books  
 - Phase 3 — Resources  
 - Phase 4 — Ideas  
 - Phase 5 — Insights  
