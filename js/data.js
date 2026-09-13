@@ -225,5 +225,71 @@ var initialIdeas = [
   }
 ];
 
-var initialInsights = [];
+var initialInsights = [
+  {
+    id: "ins-1",
+    title: "Why databases use B+ Trees",
+    domain: "Databases",
+    whatLearned:
+      "B+ Trees keep data ordered and are designed around efficient page-based disk access, which matches how databases read and write storage.",
+    source: "initial"
+  },
+  {
+    id: "ins-2",
+    title: "Transactional Outbox Pattern",
+    domain: "Distributed Systems",
+    whatLearned:
+      "The database change and the event record are written in the same transaction, then the event is published asynchronously so systems stay consistent.",
+    source: "initial"
+  },
+  {
+    id: "ins-3",
+    title: "Growth mindset vs fixed mindset",
+    domain: "Psychology",
+    whatLearned:
+      "Believing abilities can improve changes how you respond to failure — effort and strategy become the focus instead of talent alone.",
+    source: "initial"
+  },
+  {
+    id: "ins-4",
+    title: "Deep work needs boundaries",
+    domain: "Software Engineering",
+    whatLearned:
+      "Focus is trainable. Long uninterrupted blocks produce better work than constant context switching between chat, email, and code.",
+    source: "initial"
+  },
+  {
+    id: "ins-5",
+    title: "Caching is a trade-off",
+    domain: "System Design",
+    whatLearned:
+      "Caches make reads faster but add complexity: stale data, invalidation rules, and harder debugging when values disagree.",
+    source: "initial"
+  },
+  {
+    id: "ins-6",
+    title: "Prompts work better with examples",
+    domain: "AI",
+    whatLearned:
+      "Clear constraints plus one or two examples usually beat vague prompts when asking an AI for code or explanations.",
+    source: "initial"
+  },
+  {
+    id: "ins-7",
+    title: "Indexes speed reads, slow writes",
+    domain: "Databases",
+    whatLearned:
+      "An index helps find rows quickly, but every insert/update must also maintain the index, so too many indexes can hurt write performance.",
+    source: "initial"
+  },
+  {
+    id: "ins-8",
+    title: "Idempotency for retries",
+    domain: "Distributed Systems",
+    whatLearned:
+      "Network calls can be retried. Designing operations so repeating them does not create duplicate side effects keeps systems safer.",
+    source: "initial"
+  }
+];
+
 var initialQuotes = [];

@@ -342,8 +342,37 @@ Reuses existing CSS (`.filters`, `.search-box`, `.resource-card`) and helpers (`
 
 ---
 
+## Phase 5 — Insights page (`feature/insights`)
+
+### Goal
+
+Store “what I learned” notes by domain: 8 starter insights, domain filter, add form, delete user items.
+
+### Files touched
+
+| File | Change |
+|------|--------|
+| `insights.html` | Domain filters, grid, add modal |
+| `js/data.js` | 8 items in `initialInsights` |
+| `js/script.js` | `renderInsights` + `setupInsights` |
+
+Reuses helpers and `.resource-card` / `.filters` CSS.
+
+### How to test
+
+1. Open `insights.html`.
+2. Filter by Databases / AI / etc.
+3. Add Insight → validate → save → Delete on user card.
+4. Refresh → only original 8 remain.
+
+### Git
+
+- Suggested branch: `feature/insights`
+- Suggested commit: `Add Insights page with domain filters and add form`
+
+---
+
 ## Later phases (placeholder)
 
-- Phase 5 — Insights  
 - Phase 6 — Motivation  
 - Phase 7 — Wire Home to data  

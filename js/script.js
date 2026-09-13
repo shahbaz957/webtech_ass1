@@ -462,6 +462,107 @@ function setupIdeas() {
   };
 }
 
+/* ===== INSIGHTS ===== */
+var insights = copyList(initialInsights);
+var insightFilter = "all";
+
+function renderInsights() {
+  var grid = $("insights-grid");
+  if (!grid) return;
+
+  var html = "";
+  for (var i = 0; i < insights.length; i++) {
+    var item = insights[i];
+    if (insightFilter !== "all" && item.domain !== insightFilter) continue;
+
+    var del =
+      item.source === "user"
+        ? '<button class="btn btn-outline btn-small" type="button" data-delete="' + item.id + '">Delete</button>'
+        : "";
+
+    html +=
+      '<article class="resource-card">' +
+      '<span class="card-tag">' + item.domain + "</span>" +
+      "<h3>" + item.title + "</h3>" +
+      '<p class="book-summary">' + item.whatLearned + "</p>" +
+      '<div class="card-actions">' + del + "</div></article>";
+  }
+
+  grid.innerHTML = html || "<p class='section-desc'>No insights in this domain.</p>";
+}
+
+function setupInsights() {
+  var grid = $("insights-grid");
+  if (!grid) return;
+
+  renderInsights();
+
+  var filters = document.querySelectorAll("[data-insight-filter]");
+  for (var i = 0; i < filters.length; i++) {
+    filters[i].onclick = function () {
+      insightFilter = this.getAttribute("data-insight-filter");
+      for (var j = 0; j < filters.length; j++) {
+        filters[j].classList.remove("active");
+      }
+      this.classList.add("active");
+      renderInsights();
+    };
+  }
+
+  grid.onclick = function (e) {
+    var delId = e.target.getAttribute("data-delete");
+    if (!delId) return;
+    insights = removeById(insights, delId);
+    renderInsights();
+  };
+
+  $("btn-open-add-insight").onclick = function () {
+    $("add-insight-form").reset();
+    clearError("ins-title-group");
+    clearError("ins-domain-group");
+    clearError("ins-learn-group");
+    openModal("add-insight-modal");
+  };
+
+  $("add-insight-form").onsubmit = function (e) {
+    e.preventDefault();
+
+    var title = $("ins-title").value.trim();
+    var domain = $("ins-domain").value;
+    var whatLearned = $("ins-learn").value.trim();
+    var ok = true;
+
+    clearError("ins-title-group");
+    clearError("ins-domain-group");
+    clearError("ins-learn-group");
+
+    if (title.length < 2) {
+      setError("ins-title-group", "Enter a title.");
+      ok = false;
+    }
+    if (!domain) {
+      setError("ins-domain-group", "Select a domain.");
+      ok = false;
+    }
+    if (whatLearned.length < 10) {
+      setError("ins-learn-group", "Write at least 10 characters.");
+      ok = false;
+    }
+    if (!ok) return;
+
+    insights.push({
+      id: newId(),
+      title: title,
+      domain: domain,
+      whatLearned: whatLearned,
+      source: "user"
+    });
+
+    renderInsights();
+    closeModal("add-insight-modal");
+  };
+}
+
 /* ===== start ===== */
 document.addEventListener("DOMContentLoaded", function () {
   setupNav();
@@ -469,4 +570,5 @@ document.addEventListener("DOMContentLoaded", function () {
   setupBooks();
   setupResources();
   setupIdeas();
+  setupInsights();
 });
