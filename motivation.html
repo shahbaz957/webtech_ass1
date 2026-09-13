@@ -26,9 +26,22 @@
 
   <main class="page-main">
     <div class="container">
-      <section class="page-stub">
-        <h1>Motivation</h1>
-        <p>Phase 0 stub. Quote cards and Inspire Me will be added in Phase 6.</p>
+      <header class="page-header">
+        <div>
+          <h1>Motivation</h1>
+          <p>Quotes and thoughts that keep you moving.</p>
+        </div>
+        <button class="btn" type="button" id="btn-inspire">Inspire Me</button>
+      </header>
+
+      <section class="inspire-box" aria-live="polite">
+        <p id="inspire-text">Click Inspire Me for a random quote.</p>
+        <p class="inspire-author" id="inspire-author"></p>
+      </section>
+
+      <section aria-label="All quotes">
+        <h2 class="section-title">All quotes</h2>
+        <div class="items-grid" id="quotes-grid"></div>
       </section>
     </div>
   </main>

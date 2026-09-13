@@ -372,7 +372,72 @@ Reuses helpers and `.resource-card` / `.filters` CSS.
 
 ---
 
-## Later phases (placeholder)
+## Phase 6 — Motivation (`feature/motivation`)
 
-- Phase 6 — Motivation  
-- Phase 7 — Wire Home to data  
+### Goal
+
+Show 8 quotes in a grid and an **Inspire Me** button that picks one at random with `Math.random()`.
+
+### Files
+
+| File | Change |
+|------|--------|
+| `motivation.html` | Quote grid + inspire box + button |
+| `js/data.js` | 8 `initialQuotes` |
+| `js/script.js` | `renderMotivation`, `inspireMe`, `setupMotivation` |
+| `css/style.css` | `.inspire-box`, `.quote-card` |
+
+### JS
+
+- `quotes = copyList(initialQuotes)`
+- `inspireMe()` → random index → fill `#inspire-text` and `#inspire-author`
+
+---
+
+## Phase 7 — Home wired to data (`feature/home-wire`)
+
+### Goal
+
+Home stats and recent items read from the same in-memory lists used by other pages.
+
+### Files
+
+| File | Change |
+|------|--------|
+| `index.html` | Stats ids start at 0; `#recent-grid` filled by JS |
+| `js/script.js` | `setupHome()` |
+| `README.md` | Final project summary |
+
+### `setupHome()`
+
+1. Sets `#stat-books` etc. to `books.length`, `resources.length`, …
+2. Builds recent cards from the **last** book, idea, and insight
+3. Quick actions already link to the correct pages (no extra JS)
+
+Because each HTML page reloads the script, Home shows the **initial** list sizes after a fresh load (user-added items from another page are not shared across navigations without localStorage).
+
+---
+
+## Final JS map (for viva)
+
+| Helper | Used for |
+|--------|----------|
+| `$`, `openModal`, `closeModal`, `setupModals` | DOM + dialogs |
+| `copyList`, `findById`, `removeById`, `newId` | In-memory lists |
+| `setError`, `clearError` | Forms |
+| `setupNav` | Hamburger |
+| `setupBooks` / `Resources` / `Ideas` / `Insights` | Each CRUD page |
+| `setupMotivation` / `inspireMe` | Random quote |
+| `setupHome` | Stats + recent |
+
+## Final CSS map (for viva)
+
+| Technique | Where |
+|-----------|--------|
+| Flexbox | Nav, footer, stats, filters, actions, page header |
+| Grid | `.items-grid`, `.recent-grid` (3 → 2 → 1) |
+| Media queries | 900px and 600px |
+
+---
+
+*End of planned phases.*

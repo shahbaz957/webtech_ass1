@@ -563,6 +563,82 @@ function setupInsights() {
   };
 }
 
+/* ===== MOTIVATION ===== */
+var quotes = copyList(initialQuotes);
+
+function renderMotivation() {
+  var grid = $("quotes-grid");
+  if (!grid) return;
+
+  var html = "";
+  for (var i = 0; i < quotes.length; i++) {
+    var q = quotes[i];
+    html +=
+      '<article class="quote-card">' +
+      "<p>\"" + q.text + "\"</p>" +
+      '<p class="inspire-author">— ' + q.author + "</p>" +
+      "</article>";
+  }
+  grid.innerHTML = html;
+}
+
+function inspireMe() {
+  var i = Math.floor(Math.random() * quotes.length);
+  var q = quotes[i];
+  $("inspire-text").textContent = '"' + q.text + '"';
+  $("inspire-author").textContent = "— " + q.author;
+}
+
+function setupMotivation() {
+  if (!$("quotes-grid")) return;
+  renderMotivation();
+  $("btn-inspire").onclick = inspireMe;
+}
+
+/* ===== HOME ===== */
+function setupHome() {
+  if (!$("stat-books")) return;
+
+  $("stat-books").textContent = books.length;
+  $("stat-resources").textContent = resources.length;
+  $("stat-ideas").textContent = ideas.length;
+  $("stat-insights").textContent = insights.length;
+  $("stat-quotes").textContent = quotes.length;
+
+  var grid = $("recent-grid");
+  var html = "";
+
+  if (books.length) {
+    var b = books[books.length - 1];
+    html +=
+      '<article class="recent-card"><span class="recent-type">Book</span><h3>' +
+      b.title +
+      "</h3><p>" +
+      b.author +
+      "</p></article>";
+  }
+  if (ideas.length) {
+    var idea = ideas[ideas.length - 1];
+    html +=
+      '<article class="recent-card"><span class="recent-type">Idea</span><h3>' +
+      idea.title +
+      "</h3><p>" +
+      idea.description +
+      "</p></article>";
+  }
+  if (insights.length) {
+    var ins = insights[insights.length - 1];
+    html +=
+      '<article class="recent-card"><span class="recent-type">Insight</span><h3>' +
+      ins.title +
+      "</h3><p>" +
+      ins.whatLearned +
+      "</p></article>";
+  }
+
+  grid.innerHTML = html;
+}
+
 /* ===== start ===== */
 document.addEventListener("DOMContentLoaded", function () {
   setupNav();
@@ -571,4 +647,6 @@ document.addEventListener("DOMContentLoaded", function () {
   setupResources();
   setupIdeas();
   setupInsights();
+  setupMotivation();
+  setupHome();
 });

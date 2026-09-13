@@ -292,4 +292,13 @@ var initialInsights = [
   }
 ];
 
-var initialQuotes = [];
+var initialQuotes = [
+  { id: "q-1", text: "The secret of getting ahead is getting started.", author: "Mark Twain" },
+  { id: "q-2", text: "It does not matter how slowly you go as long as you do not stop.", author: "Confucius" },
+  { id: "q-3", text: "Whether you think you can, or you think you can't — you're right.", author: "Henry Ford" },
+  { id: "q-4", text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
+  { id: "q-5", text: "Success is the sum of small efforts repeated day in and day out.", author: "Robert Collier" },
+  { id: "q-6", text: "Don't watch the clock; do what it does. Keep going.", author: "Sam Levenson" },
+  { id: "q-7", text: "An investment in knowledge pays the best interest.", author: "Benjamin Franklin" },
+  { id: "q-8", text: "The expert in anything was once a beginner.", author: "Helen Hayes" }
+];

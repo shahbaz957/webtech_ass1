@@ -565,6 +565,42 @@ select {
   padding-top: var(--space-2);
 }
 
+/* ----- Motivation quotes ----- */
+.inspire-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+  margin-bottom: var(--space-4);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.inspire-box p:first-child {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin-bottom: var(--space-2);
+}
+
+.inspire-author {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.quote-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  box-shadow: var(--shadow);
+}
+
+.quote-card p:first-child {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  margin-bottom: var(--space-2);
+}
+
 /* ----- Footer ----- */
 .site-footer {
   margin-top: auto;
