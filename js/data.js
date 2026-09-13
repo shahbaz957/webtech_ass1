@@ -166,6 +166,64 @@ var initialResources = [
   }
 ];
 
-var initialIdeas = [];
+var initialIdeas = [
+  {
+    id: "idea-1",
+    title: "AI-Native Software Development",
+    category: "Blog Idea",
+    description: "Write about how software engineering may change when engineers work with multiple AI agents day to day.",
+    source: "initial"
+  },
+  {
+    id: "idea-2",
+    title: "Personal Knowledge CLI",
+    category: "Project Idea",
+    description: "Build a tiny command-line tool that saves notes into local markdown files with tags.",
+    source: "initial"
+  },
+  {
+    id: "idea-3",
+    title: "Why databases are not just files",
+    category: "Blog Idea",
+    description: "Explain B+ Trees, pages, and indexing in plain language for beginners.",
+    source: "initial"
+  },
+  {
+    id: "idea-4",
+    title: "Study-with-me accountability app",
+    category: "Business Idea",
+    description: "A simple web app where students set weekly goals and check in publicly with friends.",
+    source: "initial"
+  },
+  {
+    id: "idea-5",
+    title: "Transactional outbox demo",
+    category: "Engineering Idea",
+    description: "Create a small demo that writes a DB row and an outbox event in one transaction.",
+    source: "initial"
+  },
+  {
+    id: "idea-6",
+    title: "Habit tracker for deep work blocks",
+    category: "Project Idea",
+    description: "Track 90-minute focus blocks and show a weekly streak chart.",
+    source: "initial"
+  },
+  {
+    id: "idea-7",
+    title: "Psychology of money notes series",
+    category: "Blog Idea",
+    description: "Turn chapter takeaways into short LinkedIn posts with one practical tip each.",
+    source: "initial"
+  },
+  {
+    id: "idea-8",
+    title: "Weekend prototype: spaced repetition flashcards",
+    category: "Random Thought",
+    description: "Use browser localStorage first, then maybe sync later — keep the first version tiny.",
+    source: "initial"
+  }
+];
+
 var initialInsights = [];
 var initialQuotes = [];

@@ -26,12 +26,64 @@
 
   <main class="page-main">
     <div class="container">
-      <section class="page-stub">
-        <h1>Ideas</h1>
-        <p>Phase 0 stub. Idea cards and search will be added in Phase 4.</p>
+      <header class="page-header">
+        <div>
+          <h1>Ideas</h1>
+          <p>Capture thoughts before they disappear.</p>
+        </div>
+        <button class="btn" type="button" id="btn-open-add-idea">+ Capture Idea</button>
+      </header>
+
+      <div class="filters">
+        <button class="filter-btn active" type="button" data-idea-filter="all">All</button>
+        <button class="filter-btn" type="button" data-idea-filter="Blog Idea">Blog Idea</button>
+        <button class="filter-btn" type="button" data-idea-filter="Project Idea">Project Idea</button>
+        <button class="filter-btn" type="button" data-idea-filter="Business Idea">Business Idea</button>
+        <button class="filter-btn" type="button" data-idea-filter="Engineering Idea">Engineering Idea</button>
+        <button class="filter-btn" type="button" data-idea-filter="Random Thought">Random Thought</button>
+      </div>
+
+      <input class="search-box" type="search" id="idea-search" placeholder="Search ideas…">
+
+      <section aria-label="Idea list">
+        <div class="items-grid" id="ideas-grid"></div>
       </section>
     </div>
   </main>
+
+  <div class="modal-backdrop" id="add-idea-modal" hidden>
+    <div class="modal" role="dialog" aria-labelledby="add-idea-title" aria-modal="true">
+      <h2 id="add-idea-title">Capture Idea</h2>
+      <form id="add-idea-form" novalidate>
+        <div class="form-group" id="idea-title-group">
+          <label for="idea-title">Idea title</label>
+          <input type="text" id="idea-title" placeholder="Short title">
+          <p class="error-text"></p>
+        </div>
+        <div class="form-group" id="idea-category-group">
+          <label for="idea-category">Category</label>
+          <select id="idea-category">
+            <option value="">Select category…</option>
+            <option value="Blog Idea">Blog Idea</option>
+            <option value="Project Idea">Project Idea</option>
+            <option value="Business Idea">Business Idea</option>
+            <option value="Engineering Idea">Engineering Idea</option>
+            <option value="Random Thought">Random Thought</option>
+          </select>
+          <p class="error-text"></p>
+        </div>
+        <div class="form-group" id="idea-desc-group">
+          <label for="idea-desc">Description</label>
+          <textarea id="idea-desc" rows="4" placeholder="What is the idea?"></textarea>
+          <p class="error-text"></p>
+        </div>
+        <div class="modal-actions">
+          <button class="btn btn-outline" type="button" data-close-modal="add-idea-modal">Cancel</button>
+          <button class="btn" type="submit">Save Idea</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <footer class="site-footer">
     <div class="container footer-inner">
